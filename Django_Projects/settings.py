@@ -29,6 +29,11 @@ ALLOWED_HOSTS = ['*', 'https://3c00fff2dabb.ngrok-free.app','http://127.0.0.1:40
 
 import os
 
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 STATIC_URL = '/static/'
 
