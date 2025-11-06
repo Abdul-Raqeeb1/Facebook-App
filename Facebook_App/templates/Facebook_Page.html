@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    {% load static %}
+    <link rel='stylesheet' href={% static "css/Facebook_App.css" %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <nav>
+            <div class="left-1">
+                <img src="{% static 'image/Facebook-Logosu.png' %}" alt="" class="img-1">
+                <p class="para-1">Facebook</p>
+            </div>
+            <div class="center-1">
+                <a href="facebookpage" class="a"><i class="fa-solid fa-house"></i></a>
+                <a href="search-friend" class="a"><i class="fa-solid fa-image-portrait"></i></a>
+                <a href="#" class="a"><i class="fa-solid fa-video"></i></a>
+                <a href="#" class="a"><i class="fa-solid fa-store"></i></a>
+            </div>
+            <div class="right-1">
+                <a href="friendlist" class="ancar-2"><i class="fa-solid fa-user-group"></i></a>
+                <a href="#" class="ancar-2"><i class="fa-solid fa-bell"></i></a>
+                <a href="user-profile" class="ancar-2" id="toggleButton"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </nav>
+
+
+        <div class="content">
+
+            <div class="heading-1">
+                <h1>Posts</h1>
+            </div>
+
+            <div class="main-content">
+                <div class="btn-box">
+                    <span class="ancar-4"><button id="createPostToggle" class="btn-1">Create</button></span>
+                </div>
+
+                {% for content in get_value %}
+
+                <div class="card">
+
+                    <div class="box-1">
+
+                        <div class="top-2">
+                            <div class="profile">
+                                <a href="#" class="ancar-3"><i class="fa-solid fa-user"></i></a>
+                            </div>
+                        </div>
+                        <div class="center-2">
+                            <p class="para-3">{{ content.user_id_post.username }}</p>
+                            <p class="para-4">{{ content.post_data_at }}</p>
+                        </div>
+
+                    </div>
+                    <div class="box-2" style='flex-direction: column;align-items: center;'>
+                        {% if content.text_area %}
+                        <h1 class="text-box" style="min-height: 44px;max-height: 330px;height:0;">{{ content.text_area }}</h1>
+                        {% endif %}
+                            {% if content.image %}
+                                <video src="{{ content.image.url }}" controls alt="Post Image" class="img-2" style="min-height: 44px;max-height: 330px;"></video>
+                                <img src="{{ content.image.url }}" alt="Post Image" class="img-2" style="min-height: 44px;max-height: 330px;">
+                            {% endif %}
+                            
+                    </div>
+
+                    <div class="box-3">
+                        <a href="likePost/{{ content.id }}" class="ancar-5"><i
+                                class="fa-regular fa-thumbs-up icon-1"></i>{{ content.n_like }}</a>
+                        <button class="ancar-5 btn-5 comment-btn" id="comment-btn"><i
+                                class="fa-regular fa-comment icon-1"></i>Comment</button>
+                        <a href="" class="ancar-5"><i class="fa-regular fa-share-from-square icon-1"></i>share</a>
+                    </div>
+                </div>
+
+                <div class="main-comment-box comment-box-Toggle" id="comment-box-Toggle">
+                    {% for show in context %}
+                    {% if show.Comment_Post_id.id == content.id %}
+                    <div class="comment-box">
+                        <div class="img-box-1">
+                            <img src="{% static 'image/default-user.png' %}" class="img-3" />
+                        </div>
+                        <div class="para-box-1">
+                            <p class="para-8">
+                                {{ show.Comment_User_id.username }}
+                            </p>
+                            <p class="para-9">
+                                {{ show.Comment_Text }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="comment-input comment-input-Toggle" id="comment-input-Toggle">
+                    <div class="box-4">
+                        <a href="" class="ancar-7"><i class="fa-solid fa-face-smile"></i></a>
+                    </div>
+                    <div class="box-5">
+                        <form method="POST" class="form-2">
+                            {% csrf_token %}
+                            <input type="hidden" name="form-type" value="comment-form">
+                            <input type="hidden" name="post-id" value="{{ content.id }}">
+                            <textarea name="comment-message" id="" class="comment-text"></textarea>
+                            <button type="submit" class="send-icon"><i class="fa-regular fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+
+
+
+
+
+                <div class="card">
+                    <div class="box-1">
+
+                        <div class="top-2">
+                            <div class="profile">
+                                <a href="#" class="ancar-3"><i class="fa-solid fa-user"></i></a>
+                            </div>
+                        </div>
+                        <div class="center-2">
+                            <p class="para-3">Lucky Khan</p>
+                            <p class="para-4">Monday 11:30 AM</p>
+                        </div>
+
+                    </div>
+                    <div class="box-2">
+                        <img src="{% static "image/bOvf94dPRxWu0u3QsPjF_tree.jpg" %}" alt="" class="img-2">
+                        <!-- <h1 class="text-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sint, dicta optio molestiae numquam, nulla excepturi soluta unde eius libero cumque corrupti. Repellat esse consequatur odio corporis voluptates ducimus? Assumenda.</h1> -->
+                    </div>
+                    <div class="box-3">
+                        <a href="" class="ancar-5"><i class="fa-regular fa-thumbs-up icon-1"></i>Like</a>
+                        <a href="" class="ancar-5"><i class="fa-regular fa-comment icon-1"></i>Comment</a>
+                        <a href="" class="ancar-5"><i class="fa-regular fa-share-from-square icon-1"></i>share</a>
+                    </div>
+
+                </div>
+
+
+
+                <div class="createPost-option" id='showPost'>
+                    <div class="PostBox">
+                        <div class="heading-2">
+                            <h1 class="heading-2-1">Create Post</h1>
+                            <button class="btn-3" onclick='closePannel()'><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="box-1">
+
+                            <div class="top-2">
+                                <div class="profile">
+                                    <a href="#" class="ancar-3"><i class="fa-solid fa-user"></i></a>
+                                </div>
+                            </div>
+                            <div class="center-2">
+                                <p class="para-3">Lucky Khan</p>
+                                <p class="para-4">Monday 11:30 AM</p>
+                            </div>
+
+                        </div>
+                        <div class="title-box">
+
+                            <form method="POST" class="form-1" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type" value="post-form">
+                                <textarea name="text-post" id="" placeholder="Enter Your Text "></textarea>
+                                <div class="addyourpost">
+                                    <p class="para-7">Add Your Post</p>
+                                    <div class="icon-2">
+                                        <input type="file" name="myFiles" />
+                                        <a href="" class="color-3 ancar-7"><i class="fa-solid fa-location-dot"></i></a>
+                                        <a href="" class="color-2 ancar-7"><i class="fa-solid fa-face-smile"></i></a>
+                                        <a href="" class="color-4 ancar-7"><i class="fa-solid fa-video"></i></a>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="ancar-8"><button type="submit" class="btn-4">Post</button></a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <footer>
+                <div class="para-2">
+                    <p>Copy Right @ Abdul Raqeeb</p>
+                </div>
+            </footer>
+
+        </div>
+
+
+        <script src="{% static 'js/facebook.js' %}"></script>
+
+
+</body>
+
+</html>

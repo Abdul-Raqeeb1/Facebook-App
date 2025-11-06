@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook</title>
+    {% load static %} 
+    <link rel='stylesheet' href={% static "css/Facebook_App.css" %}>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .main-user {
+        width: 100%;
+        height: 900px;
+        /* background-color: red; */
+      }
+      .profile-back-img {
+        width: 100%;
+        height: 400px;
+      }
+
+      .background-img-1 {
+        width: 100%;
+        height: 400px;
+      }
+      .main-profile {
+        width: 100%;
+        height: 200px;
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        /* font-family: Poppins; */
+      }
+
+      .user-profile {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-left: 50px;
+        /* z-index: ; */
+        /* background-color: black; */
+      }
+
+      .profile-username {
+        /* background-color: rebeccapurple; */
+        width: 60%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .extra-options {
+        /* background-color: blue; */
+        width: 100%;
+        height: 350px;
+        display: flex;
+      }
+      .option-1 {
+        /* background-color: red; */
+        width: 20%;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-left: 30px;
+        font-weight: bolder;
+        font-size: 1.2rem;
+        justify-content: center;
+        font-family: Poppins;
+      }
+      .option-2 {
+        /* background-color: blue; */
+        width: 70%;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+      }
+      .input-1 {
+        width: 20%;
+      }
+      .form-details {
+        display: none;
+      }
+      .Logout{
+        /* background-color: red; */
+        width: 20%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logout-btn{
+        width: 200px;
+        height: 40px;
+        color: white;
+        border: none;
+        background-color: red;
+        border-radius: 30px;
+      }
+      .edit-btn{
+        margin-left: 20px;
+      }
+      .form-10{
+        width:25%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <nav>
+        <div class="left-1">
+          <img
+            src="{% static 'image/Facebook-Logosu.png' %}"
+            alt=""
+            class="img-1"
+          />
+          <p class="para-1">Facebook</p>
+        </div>
+        <div class="center-1">
+          <a href="facebookpage" class="a"><i class="fa-solid fa-house"></i></a>
+          <a href="search-friend" class="a"
+            ><i class="fa-solid fa-image-portrait"></i
+          ></a>
+          <a href="#" class="a"><i class="fa-solid fa-video"></i></a>
+          <a href="#" class="a"><i class="fa-solid fa-store"></i></a>
+        </div>
+        <div class="right-1">
+          <a href="friendlist" class="ancar-2"
+            ><i class="fa-solid fa-user-group"></i
+          ></a>
+          <a href="#" class="ancar-2"><i class="fa-solid fa-bell"></i></a>
+          <a href="user-profile" class="ancar-2" id="toggleButton"
+            ><i class="fa-solid fa-user"></i
+          ></a>
+        </div>
+      </nav>
+
+      <div class="main-user">
+        <div class="profile-back-img">
+          <img src="https://timelinecovers.pro/facebook-cover/download/bmw-supercar-facebook-cover.jpg"
+            alt="Error image" class="background-img-1"/>
+        </div>
+
+        <div class="main-profile">
+          
+          <form method="POST" action='user-profile-pic' class="form-10" enctype="multipart/form-data">
+              <img id="uploadImage" 
+              {% if extra.profile_pic %}
+              src="{{ extra.profile_pic.url }}"
+              {% endif %}
+               alt="Error Image" class="user-profile" style="cursor:pointer;" type="file" name="myProfile" 
+             />
+             <input type="file" id="fileInput" name="myProfile"  style="display:none;" accept="image/*" />
+              
+            {% csrf_token %}
+        
+          {% comment %} <input type="file" name="myProfile"  /> {% endcomment %}
+          <input type="submit" value='save' />
+          </form>
+
+          <div class="profile-username">
+            <h1 style="font-size: 2.5rem; color: red">{{ user.first_name }} {{user.last_name}}</h1>
+            <p>@{{ user.username }}</p>
+            <a href='{% url "Logout" %}' style="color: red;">Logout</a>
+          </div>
+          <div class="Logout">
+            <a href="delete-user"><button class="logout-btn">Delete Account</button></a>
+          </div>
+        </div>
+
+        <div class="extra-options">
+          <div class="option-1">
+            <p>Current_School</p>
+            <p>Locations</p>
+            <p>Education</p>
+            <p>Phone_number</p>
+            <p>Gender</p>
+          </div>
+
+          <div class="option-2">
+            <div class="edit-block">
+              <span>{{ extra.current_school }}</span><a href="#" class="edit-btn">Edit</a>
+              <form class="form-details" method="post" action="update-profile/current_school">
+                {% csrf_token %}
+                <input type="text" name="current_school" placeholder="Enter school name" />
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+
+            <div class="edit-block">
+              <span>{{ extra.locations }}</span><a href="#" class="edit-btn">Edit</a>
+              <form class="form-details" method="post" action="update-profile/locations">
+                {% csrf_token %}
+                <input type="text" name="locations" placeholder="Enter location" />
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+
+            <div class="edit-block">
+              <span>{{ extra.education }}</span><a href="#" class="edit-btn">Edit</a>
+              <form class="form-details" method="post" action="update-profile/education">
+                {% csrf_token %}
+                <input type="text" name="education" placeholder="Enter education" />
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+
+            <div class="edit-block">
+              <span>{{ extra.phone_number }}</span><a href="#" class="edit-btn">Edit</a>
+              <form class="form-details" method="post" action="update-profile/phone_number">
+                {% csrf_token %}
+                <input type="number" name="phone_number" placeholder="Enter phone number" />
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+
+            <div class="edit-block">
+              <span>{{ extra.get_gender_display }}</span><a href="#" class="edit-btn">Edit</a>
+              <form class="form-details" method="post" action="update-profile/gender">
+                {% csrf_token %}
+                <input type="text" name="gender" value="Male" placeholder="Enter gender" />
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <script src="{% static 'js/facebook.js' %}"></script>
+    <script src="{% static 'js/user-profile.js'%}"></script>
+  </body>
+</html>

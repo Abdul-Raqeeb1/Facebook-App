@@ -1,0 +1,3 @@
+https://vigenere-xv.vercel.app/
+
+https://www.jsdelivr.com/package/npm/vigenere-x

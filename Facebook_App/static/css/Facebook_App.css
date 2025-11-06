@@ -1,0 +1,551 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  * {
+      margin: 0%;
+  }
+
+  nav {
+      /* background-color: red; */
+      width: 100%;
+      height: 50px;
+      display: flex;
+  }
+
+  .left-1 {
+      width: 25%;
+      height: 50px;
+      display: flex;
+  }
+
+  .img-1 {
+      width: 80px;
+      height: 50px;
+      border: none;
+  }
+
+  .para-1 {
+      /* background-color: yellow; */
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: bolder;
+      font-family: arial;
+  }
+
+  .center-1 {
+      /* background-color: blue; */
+      width: 50%;
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 1.2rem;
+  }
+
+  .a {
+      color: rgb(192, 188, 188);
+  }
+
+  .right-1 {
+      /* background-color: yellow; */
+      width: 25%;
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 1.2rem;
+  }
+
+  .ancar-2 {
+      background-color: rgb(204, 198, 198);
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      color: black;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+  }
+
+  .content {
+      /* background-color: red; */
+      width: 100%;
+      height: 700px;
+  }
+
+  .heading-1 {
+      width: 80%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      font-family: arial;
+  }
+
+  .main-content {
+      /* background-color: blue; */
+      width: 100%;
+      /* height: 550px; */
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-direction: column;
+      overflow: auto;
+  }
+
+  .card {
+      /* background-color: yellow; */
+      width: 40%;
+      height: 500px;
+      display: flex;
+      border: 1px solid black;
+      flex-direction: column;
+  }
+
+  .box-1 {
+      width: 100%;
+      height: 70px;
+      display: flex;
+  }
+
+  .top-2 {
+      width: 20%;
+      height: 50px;
+      display: flex;
+      justify-content: end;
+  }
+
+  .profile {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      border-radius: 50px;
+      /* color: black; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      margin-top: 5px;
+  }
+
+  .ancar-3 {
+      color: black;
+  }
+
+  .center-2 {
+      /* background-color: red; */
+      width: 80%;
+      height: 50px;
+      font-family: Poppins;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .para-4 {
+      color: rgb(160, 160, 160);
+      font-size: 0.8rem;
+  }
+
+  .box-2 {
+      /* background-color: red; */
+      width: 100%;
+      height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .img-2 {
+      width: 400px;
+      max-height: 360px;
+      min-height: 150px;
+  }
+
+  .text-box {
+      width: 350px;
+      max-height: 340px;
+      min-height: 150px;
+      overflow: auto;
+  }
+
+  .box-3 {
+      /* background-color: red; */
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 1.1rem;
+  }
+
+  .icon-1 {
+      display: flex;
+      gap: 30px;
+  }
+
+  .btn-box {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+  }
+
+  .btn-1 {
+      background-color: rgb(0, 68, 255);
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-family: Poppins;
+      cursor: pointer;
+  }
+
+  .ancar-4 {
+      /* background-color: red; */
+      width: 200px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .ancar-5 {
+      /* background-color: rebeccapurple; */
+      width: 100px;
+      height: 70px;
+      color: black;
+      text-decoration: none;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+  }
+
+  footer {
+      /* background-color: red; */
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1rem;
+      color: gray;
+      font-family: Poppins;
+  }
+
+  .popup {
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+      height: 190px;
+      box-shadow: black 1px 1px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+  }
+
+  .ancar-6 {
+      /* background-color: yellow; */
+      width: 50%;
+      height: 30px;
+      margin-top: 10px;
+      margin-left: 10px;
+
+
+
+  }
+
+  .btn-2 {
+      background-color: red;
+      width: 100%;
+      height: 30px;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+  }
+
+  .para-5 {
+      width: 100%;
+      height: 40px;
+      font-size: 1.1rem;
+      font-family: Poppins;
+      /* background-color: rebeccapurple; */
+      font-weight: bold;
+      margin-left: 10px;
+  }
+
+  .para-6 {
+      /* background-color: red; */
+      height: 40px;
+  }
+
+  .main-popup {
+      /* background-color: red; */
+      width: 11%;
+      height: 190px;
+      position: absolute;
+      top: 70px;
+      display: none;
+      left: 88%;
+  }
+
+  .createPost-option {
+      background-color: rgba(0, 0, 0, 0.439);
+      width: 100%;
+      height: 888px;
+      justify-content: center;
+      display: none;
+      align-items: center;
+      position: absolute;
+      top: 0%;
+  }
+
+  .PostBox {
+      background-color: white;
+      width: 30%;
+      height: 600px;
+      border: none;
+      border-radius: 30px;
+      box-shadow: black 1px 1px 10px;
+
+  }
+
+  .title-box {
+      /* background-color: red; */
+      width: 100%;
+      height: 400px;
+  }
+
+  .form-1 {
+      width: 100%;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+  }
+
+  textarea {
+      width: 99%;
+      height: 250px;
+      outline: none;
+      font-size: 1.6rem;
+      border: none;
+  }
+
+  .heading-2 {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-family: Poppins;
+  }
+
+  .heading-2-1 {
+      width: 80%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .btn-3 {
+      width: 10%;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+  }
+
+  .addyourpost {
+      width: 80%;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 50px;
+      display: flex;
+      margin-top: 20px;
+      margin-left: 30px;
+  }
+
+  .para-7 {
+      width: 50%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .icon-2 {
+      width: 50%;
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 1.2rem;
+  }
+
+  .ancar-7 {
+      text-decoration: none;
+      color: black;
+  }
+
+  .color-1 {
+      color: green;
+  }
+
+  .color-2 {
+      color: yellow;
+  }
+
+  .color-3 {
+      color: red;
+  }
+
+  .color-4 {
+      color: red;
+  }
+
+  .btn-4 {
+      width: 100%;
+      height: 50px;
+      background-color: blue;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+  }
+
+  .ancar-8 {
+      width: 40%;
+      height: 50px;
+      /* background-color: rebeccapurple; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-left: 30%;
+      text-decoration: none;
+  }
+
+  .content {
+      /* background-color: red; */
+      width: 100%;
+      height: 785px;
+  }
+
+  /* .main-content {
+      height: 685px;
+      overflow: auto;
+  } */
+
+  .main-comment-box{
+      width: 100%;
+      height: 220px;
+      display: none;
+      align-items: center;
+      /* background-color: red; */
+      flex-direction: column;
+      gap: 20px;
+      overflow: auto;
+  }
+
+  .comment-box {
+      border: 2px solid rgb(61, 59, 59);
+      background-color: transparent;
+      width: 40%;
+      height: 80px;
+      display: flex;
+  }
+
+  .para-8 {
+      width: 100%;
+      height: 10px;
+      color: blue;
+      margin-top: 5px;
+      font-weight: bolder;
+      margin-left: 20px;
+  }
+
+  .para-9 {
+      margin-top: 6px;
+      margin-left: 20px;
+  }
+
+  .img-box-1 {
+      width: 10%;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+  }
+
+  .img-3 {
+      width: 50px;
+      height: 50px
+  }
+
+  .para-box-1 {
+      width: 90%;
+      height: 80px
+  }
+
+  .comment-input{
+    width: 40%;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid black;
+    display: none;
+  }
+  .box-4{
+    width: 20%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-5{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* background-color: rebeccapurple; */
+  }
+  .comment-text{
+    width: 80%;
+    border: none;
+    outline: none;
+    height: 46px;
+    display: flex;
+    align-items: center;
+  }
+  .form-2{
+    width: 100%;
+    height: 50px;
+    display: flex;
+  }
+
+  .send-icon{
+    width: 20%;
+    height: 50px;
+    border: none;
+    font-size: 1.1rem;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    cursor: pointer;
+  }
+
+  .btn-5{
+    /* background-color: red; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
